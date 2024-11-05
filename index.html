@@ -1,1 +1,108 @@
-dff
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delicious Food Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #ff6347;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #ccc;
+        }
+        .product img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-details {
+            width: 50%;
+            padding-left: 20px;
+        }
+        .product-details h2 {
+            font-size: 2rem;
+            color: #ff6347;
+            margin-bottom: 10px;
+        }
+        .product-details p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .product-details .price {
+            font-size: 1.5rem;
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .buy-now-button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+        .buy-now-button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Delicious Food</h1>
+        <p>Fresh, Healthy, and Tasty</p>
+    </header>
+
+    <div class="container">
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Delicious Food Product">
+            <div class="product-details">
+                <h2>Organic Tomato Sauce</h2>
+                <p>Our premium Organic Tomato Sauce is made from the finest tomatoes, handpicked and slow-cooked to perfection. Ideal for pastas, pizzas, and more!</p>
+                <div class="price">$8.99</div>
+                <button class="buy-now-button">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Delicious Food. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
