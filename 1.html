@@ -107,7 +107,7 @@
       padding: 15px;
       box-sizing: border-box;
       overflow-y: auto;
-      transition: width 0.3s ease; /* Smooth transition for width */
+      transition: margin-left 0.3s ease; /* Smooth transition */
     }
 
     #chat-box {
@@ -187,7 +187,7 @@
         <!-- Email link using Gmail -->
         <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZbjLqFPstKLqfwNSmJbLqbtHGRvGZlQRGRtpKMzzXgmGnQGWLTdflBjvrrZHjlSnXWZVB">
           <img src="Gmail.png" alt="Email Us" />
-        </a>
+        </a><br>
 
         <!-- WhatsApp link -->
         <a href="https://wa.me/9488710427?text=Hi,%20I%20would%20like%20more%20information%20about%20your%20products" target="_blank">
@@ -202,12 +202,12 @@
       <div id="chat-box"></div>
     </div>
   </div>
+
   <script>
     const chatBox = document.getElementById('chat-box');
     const sidebar = document.getElementById('sidebar');
     const mainContainer = document.getElementById('main-container');
-    const chatArea = document.getElementById('chat-area');
-  
+
     // Product descriptions and images in Tamil
     const products = {
       "ஆந்திரா பருப்பு பொடி": {
@@ -243,14 +243,14 @@
         "image": "மணத்தக்காளி பொடி.jpg"
       }
     };
-  
+
     // Function to append messages to the chat
     function appendMessage(content, type, image = null) {
       const messageDiv = document.createElement('div');
       messageDiv.classList.add('message', type === 'user' ? 'user-message' : 'bot-message');
       messageDiv.textContent = content;
       chatBox.appendChild(messageDiv);
-  
+
       // Add image if provided
       if (image) {
         const imageElement = document.createElement('img');
@@ -258,40 +258,31 @@
         imageElement.classList.add('bot-image');
         chatBox.appendChild(imageElement);
       }
-  
+
       chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the latest message
     }
-  
+
     // Function to display product info based on button click
     function showProductInfo(productKey) {
       appendMessage(`நீங்கள் தேர்வு செய்தது: ${productKey}`, 'user');
-  
+
       // Get product details
       const product = products[productKey];
       if (product) {
         appendMessage(product.description, 'bot', product.image);
       }
-  
-      // Hide sidebar after selecting a product
-      sidebar.style.display = 'none';
-      mainContainer.style.marginLeft = '0'; // No margin when sidebar is hidden
-      chatArea.style.width = '100%'; // Full width for chat area
     }
-  
-    // Toggle the sidebar visibility and adjust chat area size
+
+    // Toggle the sidebar visibility
     function toggleSidebar() {
       if (sidebar.style.display === 'none' || sidebar.style.display === '') {
         sidebar.style.display = 'block';
         mainContainer.style.marginLeft = '250px'; // Shift the chat area to the right
-        chatArea.style.width = 'calc(100% - 250px)'; // Adjust chat width
       } else {
         sidebar.style.display = 'none';
         mainContainer.style.marginLeft = '0'; // No margin when sidebar is hidden
-        chatArea.style.width = '100%'; // Full width for chat area
       }
     }
   </script>
-  
-  
 </body>
 </html>
