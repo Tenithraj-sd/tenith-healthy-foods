@@ -1,156 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tenith Healthy Foods - WhatsApp Business Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background-color: #28a745;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            margin: 10px 0;
-            font-size: 1.2rem;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .section-title {
-            font-size: 1.8rem;
-            color: #28a745;
-            margin-top: 30px;
-            text-align: center;
-        }
-        .profile, .products, .messages {
-            background-color: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .profile ul, .products ul, .messages ul {
-            list-style: none;
-            padding: 0;
-        }
-        .profile li, .products li, .messages li {
-            font-size: 1.1rem;
-            margin: 10px 0;
-        }
-        .products li, .messages li {
-            font-weight: bold;
-        }
-        .contact-info a {
-            color: #28a745;
-            text-decoration: none;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .btn:hover {
-            background-color: #218838;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Chatbot Interface</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column; /* Vertical layout */
+      height: 100vh;
+      background-color: #f5f5f5;
+      overflow: hidden;
+    }
+
+    /* Header for brand name */
+    #header {
+      width: 100%;
+      background-color: #006bbd;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 20px; /* Static font size */
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+    }
+
+    /* Main container holding the sidebar and chat area */
+    #main-container {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Sidebar with product buttons and contact info */
+    #sidebar {
+      width: 250px;
+      background-color: #0084ff;
+      padding: 10px;
+      color: white;
+      overflow-y: auto;
+      position: sticky;
+      top: 60px; /* Adjust if necessary based on header size */
+      height: calc(100vh - 60px); /* Make sidebar height full screen minus header */
+    }
+
+    .product-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #006bbd;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .product-button:hover {
+      background-color: #0053a0;
+    }
+
+    /* Contact info styling */
+    .contact-info {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #f5f5f5;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+    }
+
+    /* Main chat area */
+    #chat-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    #chat-box {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      max-height: calc(100vh - 60px); /* Ensure chat area fits below header */
+    }
+
+    .message {
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 15px;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background-color: #0084ff;
+      color: white;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+      background-color: #e5e5ea;
+      color: black;
+    }
+
+    .bot-image {
+      align-self: flex-start;
+      margin-top: 5px;
+      max-width: 450px; /* Smaller image size */
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
+  <!-- Header with brand name -->
+  <div id="header">TENITH HEALTHY FOODS</div>
 
-    <!-- Header Section -->
-    <header>
-        <h1>Tenith Healthy Foods</h1>
-        <p>100% Natural & Organic Food Products</p>
-    </header>
+  <div id="main-container">
+    <!-- Sidebar with product buttons and contact info -->
+    <div id="sidebar">
+      <!-- Product buttons (in Tamil only) -->
+      <button class="product-button" onclick="showProductInfo('ஆந்திரா பருப்பு பொடி')">ஆந்திரா பருப்பு பொடி</button>
+      <button class="product-button" onclick="showProductInfo('கருவேப்பிலை பொடி')">கருவேப்பிலை பொடி</button>
+      <button class="product-button" onclick="showProductInfo('பிரண்டை பொடி')"> பிரண்டை பொடி</button>
+      <button class="product-button" onclick="showProductInfo('முருங்கை கீரை பொடி')">முருங்கை கீரை பொடி</button>
+      <button class="product-button" onclick="showProductInfo('முடக்கத்தான் கீரை பொடி')">முடக்கத்தான் கீரை பொடி</button>
+      <button class="product-button" onclick="showProductInfo('முருங்கை கீரை  கொள்ளு பொடி')">முருங்கை கீரை கொள்ளு பொடி</button>
+      <button class="product-button" onclick="showProductInfo('வல்லாரை பொடி')">வல்லாரை பொடி</button>
+      <button class="product-button" onclick="showProductInfo('மணத்தக்காளி பொடி')">மணத்தக்காளி பொடி</button>
 
-    <!-- Main Content Container -->
-    <div class="container">
-
-        <!-- Business Profile Section -->
-        <div class="profile">
-            <h2 class="section-title">Business Profile</h2>
-            <ul>
-                <li><strong>Business Name:</strong> TENITH HEALTHY FOODS</li>
-                <li><strong>Business Category:</strong> Health & Wellness / Food & Beverage</li>
-                <li><strong>Description:</strong> "Food is Medicine — Discover our range of 100% natural, organic, and instant mix powders to support immunity, digestion, and overall wellness. Specializing in traditional recipes and organic ingredients."</li>
-                <li><strong>Business Address:</strong> 136, Vanniyar Nagar, Meyyanur, Salem, Tamil Nadu, Pin – 636004</li>
-                <li><strong>Contact Details:</strong> <a href="tel:+919488710427">9488710427</a> | <a href="mailto:tenithhealthyfoods@gmail.com">tenithhealthyfoods@gmail.com</a></li>
-                <li><strong>Hours of Operation:</strong> 9:00 AM - 7:00 PM</li>
-            </ul>
-        </div>
-
-        <!-- Product Catalog Section -->
-        <div class="products">
-            <h2 class="section-title">Product Catalog</h2>
-            <ul>
-                <li><strong>Idli/Dosa/Rice Mix Powder:</strong> A collection of natural powders for health benefits, perfect for mixing with Idli, Dosa, or Rice.</li>
-                <li><strong>Andhra Dal Powder:</strong> Boosts immunity and digestive power.</li>
-                <li><strong>Caraway Powder:</strong> Reduces cholesterol, strengthens hair.</li>
-                <li><strong>Brandy Powder:</strong> Improves circulation for strong bones and heart health.</li>
-                <li><strong>Moringa Spinach Powder:</strong> Strengthens bones and teeth, boosts immunity.</li>
-                <li><strong>Spinach Freeze Powder:</strong> Reduces joint pain, promotes digestion.</li>
-                <li><strong>Moringa Spinach Kill Powder:</strong> Reduces body fat, improves memory.</li>
-                <li><strong>Vallarai Powder:</strong> Increases memory, addresses menstrual issues.</li>
-                <li><strong>Bridal Powder:</strong> Heals stomach ulcers, supports detoxification.</li>
-                <li><strong>Spinach Freeze Soup Powder:</strong> Reduces joint pain, supports digestion.</li>
-                <li><strong>Moringa Spinach Soup Powder:</strong> Boosts immunity, controls blood sugar.</li>
-                <li><strong>Messenger Soup Powder:</strong> Clears phlegm and supports respiratory health.</li>
-            </ul>
-            <a href="whatsapp://send?phone=+919488710427" class="btn">Order Now via WhatsApp</a>
-        </div>
-
-        <!-- Automated Messages Section -->
-        <div class="messages">
-            <h2 class="section-title">Suggested Automated Messages</h2>
-            <ul>
-                <li><strong>Greeting Message:</strong> "Hello! Thank you for contacting Tenith Healthy Foods. We offer 100% natural mix powders and soup powders to support your health. Let us know how we can assist you today!"</li>
-                <li><strong>Away Message:</strong> "Thank you for reaching out to Tenith Healthy Foods. We’re currently away but will respond as soon as possible. For immediate questions, feel free to email us at <a href="mailto:tenithhealthyfoods@gmail.com">tenithhealthyfoods@gmail.com</a>."</li>
-                <li><strong>Quick Replies:</strong>
-                    <ul>
-                        <li>"What products do you offer?" (Link to product catalog)</li>
-                        <li>"How can I place an order?"</li>
-                        <li>"What are the health benefits of [specific product]?"</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
+      <!-- Contact info -->
+      <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p>Address: 136, Vanniyar Nagar, Meyyanur, Salem, Tamil Nadu, 636004</p>
+        <p>Phone: 9488710427</p>
+        <p>Email: tenithhealthyfoods@gmail.com</p>
+        <p>WhatsApp: 9488710427</p>
+        <p>Instagram: @tenithhealthyfoods</p>
+      </div>
     </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Tenith Healthy Foods. All rights reserved.</p>
-    </footer>
+    <!-- Main chat area -->
+    <div id="chat-area">
+      <div id="chat-box"></div>
+    </div>
+  </div>
 
+  <script>
+    const chatBox = document.getElementById('chat-box');
+
+    // Product descriptions and images in Tamil
+    const products = {
+      "ஆந்திரா பருப்பு பொடி": {
+        "description": "நோய் எதிர்ப்பு சக்தியை அதிகரிக்கிறது, செரிமானத்தை மேம்படுத்துகிறது, மற்றும் உடல் வலிமையை வழங்குகிறது.",
+        "image": "ஆந்திரா பருப்பு பொடி.jpg"
+      },
+      "கருவேப்பிலை பொடி": {
+        "description": "முடியை வலுப்படுத்துகிறது, கெட்ட கொழுப்பை குறைக்கிறது.",
+        "image": "கருவேப்பிலை பொடி.jpg"
+      },
+      "பிரண்டை பொடி": {
+        "description": "எலும்புகளை ஆதரிக்கிறது, இரத்த ஓட்டத்தை மேம்படுத்துகிறது, இதயத்தை வலுப்படுத்துகிறது.",
+        "image": "பிரண்டை பொடி.jpg"
+      },
+      "முருங்கை கீரை பொடி": {
+        "description": "முருங்கை இலை மாவு: எலும்புகள் மற்றும் பல் வலுப்படுத்துகிறது, நோய் எதிர்ப்பு சக்தியை அதிகரிக்கிறது.",
+        "image": "முருங்கை கீரை பொடி.jpg"
+      },
+      "முடக்கத்தான் கீரை பொடி": {
+        "description": "முடக்கத்தான் கீரை மாவு: உடல் வெப்பத்தை குறைக்கிறது, தோல் நோய்களை சரிசெய்ய உதவுகிறது.",
+        "image": "முடக்கத்தான் கீரை பொடி.jpg"
+      },
+      "முருங்கை கீரை  கொள்ளு பொடி": {
+        "description": "முருங்கை இலை Horse Gram மாவு: உடல் உறுதி மற்றும் நோய் எதிர்ப்பு சக்தியை மேம்படுத்துகிறது.",
+        "image": "முருங்கை கீரை  கொள்ளு பொடி.jpg"
+      },
+      "வல்லாரை பொடி": {
+        "description": "வல்லரையா மாவு: மூளை வளர்ச்சியை மேம்படுத்துகிறது, நினைவாற்றலை அதிகரிக்கிறது.",
+        "image": "வல்லாரை பொடி.jpg"
+      },
+      "மணத்தக்காளி பொடி": {
+        "description": "மனதாக்களை மாவு: வாயு கோளாறுகள் மற்றும் பித்தம் பிரச்சினைகளை சரிசெய்ய உதவுகிறது.",
+        "image": "மணத்தக்காளி பொடி.jpg"
+      }
+    };
+
+    // Function to append messages to the chat
+    function appendMessage(content, type, image = null) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', type === 'user' ? 'user-message' : 'bot-message');
+      messageDiv.textContent = content;
+      chatBox.appendChild(messageDiv);
+
+      // Add image if provided
+      if (image) {
+        const imageElement = document.createElement('img');
+        imageElement.src = image;
+        imageElement.classList.add('bot-image');
+        chatBox.appendChild(imageElement);
+      }
+
+      chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the latest message
+    }
+
+    // Function to display product info based on button click
+    function showProductInfo(productKey) {
+      // Display user's product choice as a message
+      appendMessage(`நீங்கள் தேர்வு செய்தது: ${productKey}`, 'user');
+
+      // Get product details
+      const product = products[productKey];
+      if (product) {
+        // Display bot response with product description and image
+        appendMessage(product.description, 'bot', product.image);
+      }
+    }
+  </script>
 </body>
 </html>
