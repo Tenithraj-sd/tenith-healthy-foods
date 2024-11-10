@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Chatbot Interface</title>
+  <title>TENITH HEALTHY FOODS</title>
   <style>
     * {
       margin: 0;
@@ -176,7 +176,7 @@
       <button class="product-button" onclick="showProductInfo('பிரண்டை பொடி')">பிரண்டை பொடி</button>
       <button class="product-button" onclick="showProductInfo('முருங்கை கீரை பொடி')">முருங்கை கீரை பொடி</button>
       <button class="product-button" onclick="showProductInfo('முடக்கத்தான் கீரை பொடி')">முடக்கத்தான் கீரை பொடி</button>
-      <button class="product-button" onclick="showProductInfo('முருங்கை கீரை  கொள்ளு பொடி')">முருங்கை கீரை கொள்ளு பொடி</button>
+      <button class="product-button" onclick="showProductInfo('முருங்கை கீரை கொள்ளு பொடி')">முருங்கை கீரை கொள்ளு பொடி</button>
       <button class="product-button" onclick="showProductInfo('வல்லாரை பொடி')">வல்லாரை பொடி</button>
       <button class="product-button" onclick="showProductInfo('மணத்தக்காளி பொடி')">மணத்தக்காளி பொடி</button>
 
@@ -185,7 +185,7 @@
         <p><b>Phone:</b> 9488710427</p><br>
 
         <!-- Email link using Gmail -->
-        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZbjLqFPstKLqfwNSmJbLqbtHGRvGZlQRGRtpKMzzXgmGnQGWLTdflBjvrrZHjlSnXWZVB">
+        <a href="mailto:your-email@example.com?subject=Product%20Inquiry" target="_blank">
           <img src="Gmail.png" alt="Email Us" />
         </a>
 
@@ -193,7 +193,6 @@
         <a href="https://wa.me/9488710427?text=Hi,%20I%20would%20like%20more%20information%20about%20your%20products" target="_blank">
           <img src="whats.webp" alt="Chat on WhatsApp" />
         </a>
-
       </div>
     </div>
 
@@ -290,8 +289,9 @@
         chatArea.style.width = '100%'; // Full width for chat area
       }
     }
+    
+    // Add double-click event to chat area to toggle sidebar
+    chatArea.addEventListener('dblclick', toggleSidebar);
   </script>
-  
-  
 </body>
 </html>
