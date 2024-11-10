@@ -13,6 +13,45 @@ const productInfo = {
     description: "முடியை வலுப்படுத்துகிறது, கெட்ட கொழுப்பை குறைக்கிறது.",
     image: "கருவேப்பிலை பொடி.jpg"
   },
+  "பிரண்டை பொடி": {
+    description: "",
+    image: "பிரண்டை பொடி.jpg"
+  }, 
+   "முருங்கை கீரை பொடி": {
+    description: "",
+    image: "முருங்கை கீரை பொடி.jpg"
+  },
+  "முடக்கத்தான் கீரை பொடி": {
+    description: "",
+    image: "முடக்கத்தான் கீரை பொடி.jpg"
+  },
+  "கொள்ளு முருங்கை கீரை பொடி": {
+    description: "",
+    image: "கொள்ளு முருங்கை கீரை பொடி.jpg"
+  },
+  "வல்லாரை பொடி": {
+    description: "",
+    image: "வல்லாரை பொடி.jpg"
+  },
+  "மணத்தக்காளி பொடி": {
+    description: "",
+    image: "மணத்தக்காளி பொடி.jpg"
+  },
+
+  // for soup later
+  "9": {
+    description: "",
+    image: "9.jpg"
+  },
+  "10": {
+    description: "",
+    image: "10.jpg"
+  },
+  "11": {
+    description: "",
+    image: "11.jpg"
+  },
+
   // Add additional products as needed
 };
 
