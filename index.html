@@ -1,171 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TENITH HEALTHY FOODS</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TENITH HEALTHY FOODS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400..800&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+      body {
+        font-family: "Baloo Thambi 2", sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #f0f8f1; /* Light green background for page */
+        overflow: hidden;
+      }
+  
+      /* Header for brand name and toggle button */
+      #header {
+        width: 100%;
+        background-color: #4caf50; /* Dark green for header */
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        font-size: 20px;
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+      }
+  
+      /* Sidebar toggle button */
+      #sidebar-toggle {
+        background-color: #4caf50; /* Dark green for sidebar toggle */
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+  
+      /* Main container holding the sidebar and chat area */
+      #main-container {
+        display: flex;
+        flex: 1;
+        width: 100%;
+        overflow: hidden;
+        transition: margin-left 0.3s ease;
+      }
+  
+      /* Sidebar with product buttons and contact info */
+      #sidebar {
+        width: 250px;
+        background-color: #81c784; /* Light green for sidebar */
+        padding: 10px;
+        color: white;
+        overflow-y: auto;
+        height: 100vh;
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        z-index: 100;
+      }
+  
+      .product-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #388e3c; /* Medium green for buttons */
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 1rem;
+      }
+  
+      .product-button:hover {
+        background-color: #2c6e28; /* Darker green on hover */
+      }
+  
+      .contact-info {
+        margin-top: 20px;
+        font-size: 1rem;
+        color: #f5f5f5;
+        text-align: center;
+      }
+  
+      .contact-info p {
+        margin: 5px 0;
+      }
+  
+      .contact-method {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+  
+      .contact-method p {
+        margin: 0;
+        font-weight: bold;
+        color: white;
+      }
+  
+      .contact-info img {
+        width: 50px;
+        height: 50px;
+        margin-top: 5px;
+      }
+  
+      /* Main chat area */
+      #chat-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        background-color: #e8f5e9; /* Very light green for chat area */
+      }
+  
+      #chat-box {
+        flex: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        height: calc(100vh - 60px); /* Ensure chat area fits below header */
+        background-color: #ffffff; /* White background for chat box */
+      }
+  
+      .message {
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 15px;
+        max-width: 70%;
+        word-wrap: break-word;
+      }
+  
+      .user-message {
+        align-self: flex-end;
+        background-color: #388e3c; /* Medium green for user message */
+        color: white;
+      }
+  
+      .bot-message {
+        align-self: flex-start;
+        background-color: #e5e5ea;
+        color: black;
+      }
+  
+      .bot-image {
+        width: 350px;
+        height: 350px;
+        margin-top: 5px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  
 
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      background-color: #f5f5f5;
-      overflow: hidden;
-    }
-
-    /* Header for brand name and toggle button */
-    #header {
-      width: 100%;
-      background-color: #006bbd;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      font-size: 20px;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-    }
-
-    /* Sidebar toggle button */
-    #sidebar-toggle {
-      background-color: #006bbd;
-      color: white;
-      border: none;
-      padding: 10px;
-      font-size: 18px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    /* Main container holding the sidebar and chat area */
-    #main-container {
-      display: flex;
-      flex: 1;
-      width: 100%;
-      overflow: hidden;
-      transition: margin-left 0.3s ease;
-    }
-
-    /* Sidebar with product buttons and contact info */
-    #sidebar {
-      width: 250px;
-      background-color: #0084ff;
-      padding: 10px;
-      color: white;
-      overflow-y: auto;
-      height: 100vh;
-      display: none;
-      position: fixed;
-      top: 60px;
-      left: 0;
-      z-index: 100;
-    }
-
-    .product-button {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      background-color: #006bbd;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      text-align: center;
-      font-size: 1rem;
-    }
-
-    .product-button:hover {
-      background-color: #0053a0;
-    }
-
-    .contact-info {
-      margin-top: 20px;
-      font-size: 1rem;
-      color: #f5f5f5;
-      text-align: center;
-    }
-
-    .contact-info p {
-      margin: 5px 0;
-    }
-
-    .contact-method {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .contact-method p {
-      margin: 0;
-      font-weight: bold;
-      color: white;
-    }
-
-    .contact-info img {
-      width: 50px;
-      height: 50px;
-      margin-top: 5px;
-    }
-
-    /* Main chat area */
-    #chat-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 15px;
-      box-sizing: border-box;
-      overflow-y: auto;
-    }
-
-    #chat-box {
-      flex: 1;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      height: calc(100vh - 60px); /* Ensure chat area fits below header */
-    }
-
-    .message {
-      margin: 5px 0;
-      padding: 10px;
-      border-radius: 15px;
-      max-width: 70%;
-      word-wrap: break-word;
-    }
-
-    .user-message {
-      align-self: flex-end;
-      background-color: #0084ff;
-      color: white;
-    }
-
-    .bot-message {
-      align-self: flex-start;
-      background-color: #e5e5ea;
-      color: black;
-    }
-
-    .bot-image {
-      width: 350px;
-      height: 350px;
-      margin-top: 5px;
-      border-radius: 10px;
-    }
-
-  </style>
-</head>
 <body>
   <!-- Header with brand name and toggle button -->
   <div id="header">
@@ -181,7 +187,7 @@
       <button class="product-button" onclick="showProductInfo('பிரண்டை பொடி')">பிரண்டை பொடி</button>
       <button class="product-button" onclick="showProductInfo('முருங்கை கீரை பொடி')">முருங்கை கீரை பொடி</button>
       <button class="product-button" onclick="showProductInfo('முடக்கத்தான் கீரை பொடி')">முடக்கத்தான் கீரை பொடி</button>
-      <button class="product-button" onclick="showProductInfo('1')">முருங்கை கீரை கொள்ளு பொடி</button>
+      <button class="product-button" onclick="showProductInfo('முருங்கை கீரை கொள்ளு பொடி')">முருங்கை கீரை கொள்ளு பொடி</button>
       <button class="product-button" onclick="showProductInfo('வல்லாரை பொடி')">வல்லாரை பொடி</button>
       <button class="product-button" onclick="showProductInfo('மணத்தக்காளி பொடி')">மணத்தக்காளி பொடி</button>
 
@@ -242,7 +248,7 @@
         "description": "முடக்கத்தான் கீரை மாவு: உடல் வெப்பத்தை குறைக்கிறது, தோல் நோய்களை சரிசெய்ய உதவுகிறது.",
         "image": "முடக்கத்தான் கீரை பொடி.jpg"
       },
-      "1": {
+      "முருங்கை கீரை கொள்ளு பொடி": {
         "description": "முருங்கை இலை Horse Gram மாவு: உடல் உறுதி மற்றும் நோய் எதிர்ப்பு சக்தியை மேம்படுத்துகிறது.",
         "image": "கொள்ளு முருங்கை கீரை பொடி.jpg"
       },
