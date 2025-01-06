@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TENITH HEALTHY FOODS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Header with logo, brand name, and toggle button -->
+  <div id="header">
+    <div>
+      <img id="brand-logo" src="Logo.png" alt="Logo" />
+      TENITH HEALTHY FOODS
+    </div>
+    <button id="show-info-btn" onclick="showContactInfo()">Show Info</button>
+    <button id="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+  </div>
+
+  <div id="main-container">
+    <!-- Sidebar with product sections -->
+    <div id="sidebar">
+      <div class="product-section">
+        <h3>Mix Products</h3>
+        <button class="product-button" onclick="showProductInfo('ஆந்திரா பருப்பு பொடி')">ஆந்திரா பருப்பு பொடி</button>
+        <button class="product-button" onclick="showProductInfo('கருவேப்பிலை பொடி')">கருவேப்பிலை பொடி</button>
+        <button class="product-button" onclick="showProductInfo('பிரண்டை பொடி')">பிரண்டை பொடி</button>
+        <button class="product-button" onclick="showProductInfo('முருங்கை கீரை பொடி')">முருங்கை கீரை பொடி</button>
+        <button class="product-button" onclick="showProductInfo('முடக்கத்தான் கீரை பொடி')">முடக்கத்தான் கீரை பொடி</button>
+        <button class="product-button" onclick="showProductInfo('கொள்ளு முருங்கை கீரை பொடி')">கொள்ளு முருங்கை கீரை பொடி</button>
+        <button class="product-button" onclick="showProductInfo('வல்லாரை பொடி')">வல்லாரை பொடி</button>
+        <button class="product-button" onclick="showProductInfo('மணத்தக்காளி பொடி')">மணத்தக்காளி பொடி</button>
+
+      </div>
+ <!--    <div class="product-section">
+        <h3>Soup Products</h3>
+        <button class="product-button" onclick="showProductInfo('சோப் 1')">சோப் 1</button>
+        <button class="product-button" onclick="showProductInfo('சோப் 2')">சோப் 2</button>
+      </div> -->
+    </div>
+
+    <!-- Main chat area -->
+    <div id="chat-area" ondblclick="toggleSidebar()">
+      <div id="chat-box"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
