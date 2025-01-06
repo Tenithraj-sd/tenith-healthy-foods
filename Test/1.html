@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Food Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background: #e6ffe6; /* Soft green background */
+        }
+        .navbar {
+            background-color: #8FBC8F; /* Sage green */
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+            transition: background-color 0.3s;
+        }
+        .navbar .menu-button {
+            cursor: pointer;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .navbar .close-btn {
+            display: none;
+        }
+        .sidebar {
+            position: fixed;
+            top: 59px; /* Adjust this to match the height of the top navbar */
+            left: 7px;
+            width: 180px;
+            height: 180px; /* Full height */
+            background-color: #8FBC8F; /* Sage green */
+            overflow-y: auto;
+            transition: transform 0.5s, opacity 0.5s;
+            transform: translateX(-100%);
+            opacity: 0;
+            border-radius: 15px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar a {
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #6B8E23; /* Olive Drab */
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 2em;
+            margin-top: 60px; /* Adjust this to match the height of the top navbar */
+        }
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 1em;
+            padding: 2em;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .card h2 {
+            margin: 1em 0 0.5em 0;
+        }
+        .card p {
+            margin: 0 0 1em 0;
+        }
+        .card button {
+            background-color: #8FBC8F; /* Sage green */
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: #6B8E23; /* Olive Drab */
+        }
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 140px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            z-index: 2; /* Ensure it's on top */
+        }
+        .button-bar {
+            background-color: #8FBC8F; /* Sage green */
+            color: white;
+            padding: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            margin-bottom: 1em;
+        }
+        .contact-info div {
+            text-align: left;
+        }
+        .navigation-links {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+        }
+        .navigation-links a {
+            color: rgb(34, 32, 32);
+            text-decoration: none;
+        }
+        .navigation-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-button" onclick="toggleSidebar()">☰</div>
+        <div class="logo">Tenith healthy foods</div>
+        <div class="close-btn" id="closeBtn" onclick="toggleSidebar()">×</div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="cards-container">
+        <div class="card">
+            <img src="product1.jpg" alt="Product 1">
+            <h2>Instant Idli, Dosa & Rice Mix</h2>
+            <p>Quick, tasty, and authentic! Perfect for soft idlis, crispy dosas, and rice dishes.</p>
+            <button>More Details</button>
+        </div>
+        <div class="card">
+            <img src="product2.jpg" alt="Product 2">
+            <h2>Soup & Health Mix</h2>
+            <p>Nutritious, easy-to-make mix for healthy soups and drinks. Simple and wholesome!</p>
+            <button>More Details</button>
+        </div>
+    </div>
+    <a href="https://api.whatsapp.com/send?phone=9488710427&text=Hi%20I%20want%20to%20know%20about%20your%20products" target="_blank">
+        <img src="p.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+    <div class="button-bar">
+        <a href="#" style=" color: rgb(34, 32, 32)" onclick="scrollToTop()">Back to the top</a>
+        <div class="contact-info">
+            <div>
+                <div><b>Fit and Food Tamil</b></div>
+                <div>TNHB Colony, Villapuram Housing Board,</div>
+                <div>Madurai 625011.</div>
+            </div>
+            <div>
+                <div>+91 9363599986</div>
+            </div>
+        </div>
+        <div class="navigation-links">
+            <a href="#home">Home</a>
+            <a href="#products">Our Collections</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var closeBtn = document.getElementById("closeBtn");
+            if (sidebar.style.transform === "translateX(0%)") {
+                sidebar.style.transform = "translateX(-100%)";
+                sidebar.style.opacity = "0";
+                closeBtn.style.display = "none";
+            } else {
+                sidebar.style.transform = "translateX(0%)";
+                sidebar.style.opacity = "1";
+                closeBtn.style.display = "block";
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
