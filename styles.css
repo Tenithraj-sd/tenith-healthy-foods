@@ -301,7 +301,7 @@ h2::before {
 
 .social-links {
     display: flex;
-    gap: 12px;
+    gap: 5px;
 }
 
 .social-icon {
