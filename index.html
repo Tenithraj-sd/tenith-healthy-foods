@@ -3,197 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natural Food Products</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            background: #e6ffe6; /* Soft green background */
-        }
-        .navbar {
-            background-color: #8FBC8F; /* Sage green */
-            color: white;
-            padding: 1em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1;
-            transition: background-color 0.3s;
-        }
-        .navbar .menu-button {
-            cursor: pointer;
-        }
-        .navbar .logo {
-            font-size: 1.5em;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .navbar .close-btn {
-            display: none;
-        }
-        .sidebar {
-            position: fixed;
-            top: 59px; /* Adjust this to match the height of the top navbar */
-            left: 7px;
-            width: 180px;
-            height: 180px; /* Full height */
-            background-color: #8FBC8F; /* Sage green */
-            overflow-y: auto;
-            transition: transform 0.5s, opacity 0.5s;
-            transform: translateX(-100%);
-            opacity: 0;
-            border-radius: 15px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-        .sidebar a {
-            padding: 8px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
-        .sidebar a:hover {
-            background-color: #6B8E23; /* Olive Drab */
-        }
-        .cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 2em;
-            margin-top: 60px; /* Adjust this to match the height of the top navbar */
-        }
-        .card {
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin: 1em;
-            padding: 2em;
-            width: 300px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .card img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-        .card h2 {
-            margin: 1em 0 0.5em 0;
-        }
-        .card p {
-            margin: 0 0 1em 0;
-        }
-        .card button {
-            background-color: #8FBC8F; /* Sage green */
-            color: white;
-            border: none;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .card button:hover {
-            background-color: #6B8E23; /* Olive Drab */
-        }
-        .whatsapp-icon {
-            position: fixed;
-            bottom: 60px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            cursor: pointer;
-            z-index: 2; /* Ensure it's on top */
-        }
-        .button-bar {
-            background-color: #8FBC8F; /* Sage green */
-            color: white;
-            padding: 1em;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 1;
-        }
-        .button-bar a {
-            color: white;
-            margin: 0 1em;
-            text-decoration: none;
-        }
-        .button-bar a:hover {
-            text-decoration: underline;
-        }
-        .logo-image {
-            vertical-align: middle;
-            margin-right: 0.5em;
-        }
-    </style>
+    <title>Tenith Healthy Foods</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <div class="menu-button" onclick="toggleSidebar()">☰</div>
-        <div class="logo">Tenith healthy foods</div>
-        <div class="close-btn" id="closeBtn" onclick="toggleSidebar()">×</div>
-    </div>
-    <div class="sidebar" id="sidebar">
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
-    </div>
-    <div class="cards-container">
-        <div class="card">
-            <img src="product1.jpg" alt="Product 1">
-            <h2>Product 1</h2>
-            <p>Description of Product 1.</p>
-            <button>More Details</button>
-        </div>
-        <div class="card">
-            <img src="product2.jpg" alt="Product 2">
-            <h2>Product 2</h2>
-            <p>Description of Product 2.</p>
-            <button>More Details</button>
-        </div>
-    </div>
-    <a href="https://api.whatsapp.com/send?phone=9488710427&text=Hi%20I%20want%20to%20know%20about%20your%20products" target="_blank">
-        <img src="p.png" alt="WhatsApp" class="whatsapp-icon">
-    </a>
-    <div class="button-bar">
-        <a href="#" onclick="scrollToTop()">Back to the top</a>
-        <div style="display: flex; align-items: center; justify-content: center;">
-            <div style="margin-right: 1em;">Fit and Food Tamil</div><br>
-            <!-- <img src="p.png" alt="Brand Logo" class="logo-image"> -->
-            <br>
-            <div>TNHB Colony, Villapuram Housing Board, Madurai 625011.</div>
-        </div>
-        <div>+91 9363599986</div>
-        <a href="#home">Home</a>
-        <a href="#products">Our Collections</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact Us</a>
-    </div>
-    <script>
-        function toggleSidebar() {
-            var sidebar = document.getElementById("sidebar");
-            var closeBtn = document.getElementById("closeBtn");
-            if (sidebar.style.transform === "translateX(0%)") {
-                sidebar.style.transform = "translateX(-100%)";
-                sidebar.style.opacity = "0";
-                closeBtn.style.display = "none";
-            } else {
-                sidebar.style.transform = "translateX(0%)";
-                sidebar.style.opacity = "1";
-                closeBtn.style.display = "block";
-            }
-        }
+    <header>
+        <h1 class="brand-title">Tenith Healthy Foods</h1>
+        <nav class="navbar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search healthy products">
+                <div class="search-suggestions"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="scrollToSection('main')">Products</button>
+                <button onclick="scrollToSection('about')">About</button>
+                <button onclick="scrollToSection('contact')">Connect</button>
+            </div>
+        </nav>
+    </header>
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    <main class="content">
+     
+        <section id="products" class="product-section">
+            <h2>Instant Mixes & Powders</h2>
+            <div class="product-container" id="mixes"></div>
+            <div class="product-container" id="s"></div>
+
+            <h2>Healthy Soup Powders</h2>
+            <div class="product-container" id="soups"></div>
+           
+        </section>
+    </div>
+
+        <section id="about" class="dish-section">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    At <span class="highlight">Tenith Healthy Foods</span>, we're committed to 
+                    providing 100% natural food products . <br>we're committed to 
+                    providing 100% natural food products . <br>we're committed to 
+                    providing 100% natural food products .
+                </p>
+                <div class="about-text">
+                    <p>✓ Chemical-Free Production</p>
+                
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="dish-section">
+            <h2>Connect With Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> tenithhealthyfoods@gmail.com</p>
+                    <p><i class="fas fa-phone"></i>+91 9488710427</p>
+                    <p><i class="fas fa-map-marker-alt"></i>136,Vanniyar Nagar, Meyyanur,<br>Salem,Tamil Nadu,India.<br>Pin - 636004</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/tenith_healthy_foods" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/9488710427?text=Hi%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20product.%20Could%20you%20please%20provide%20more%20information%20%F0%9F%94%8D
+                    " class="social-icon"><i class="fab fa-whatsapp"></i></a>
+
+                    <a href="https://t.me/TENITH_HEALTHY_FOODS_Bot" class="social-icon">
+                    <i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

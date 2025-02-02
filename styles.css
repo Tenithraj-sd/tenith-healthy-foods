@@ -1,0 +1,354 @@
+:root {
+    --primary-green: #3d8361;
+    --secondary-teal: #1c6758;
+    --accent-mustard: #d6cda4;
+    --dark-charcoal: #2d3436;
+    --light-cream: #fbf7f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: var(--light-cream);
+}
+
+.brand-title {
+    text-align: center;
+    padding: 15px 0;
+    background: var(--primary-green);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    font-size: 1.6rem;
+    letter-spacing: 1.5px;
+}
+
+/* Updated Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 55px;
+    width: 100%;
+    background: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Added gap between elements */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.search-container {
+    flex: 1;
+    max-width: 800px; /* Increased max-width */
+    margin-right: 20px; /* Increased margin */
+}
+.dish-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    background: var(--light-cream);
+    margin-bottom: 12px;
+}
+#search-input {
+    width: 100%;
+    padding: 12px 25px; /* Increased horizontal padding */
+    border: 2px solid var(--primary-green);
+    border-radius: 25px;
+    font-size: 13px; /* Slightly larger font */
+    background: var(--light-cream);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+.nav-buttons button {
+    padding: 8px 20px; /* Larger button size */
+    border: 2px solid var(--primary-green);
+    background: transparent;
+    color: var(--primary-green);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 15px;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Rest of the CSS remains same */
+
+
+.product-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 15px 0;
+}
+
+.product-card {
+    min-width: 270px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.product-card h3 {
+    margin-bottom: 8px; /* Space below the product name */
+    font-size: 1.2rem;
+}
+
+.product-card p {
+    margin-bottom: 12px; /* Space below the product description */
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.product-card .view-details {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-top: 10px; /* Space between description and button */
+    background: var(--primary-green);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.product-image {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.view-details {
+    display: inline-block;
+    padding: 8px 12px;
+    background: var(--primary-green);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.view-details:hover {
+    background: white;
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+}
+.search-suggestions {
+    position: absolute;
+    width: 100%;
+    background: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    border-radius: 0 0 15px 15px;
+    margin-top: 5px;
+    display: none;
+    z-index: 1001;
+}
+
+.suggestion {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--dark-charcoal);
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.suggestion:hover {
+    background: var(--light-cream);
+    transform: translateX(5px);
+}
+
+.suggestion i {
+    color: var(--primary-green);
+}
+
+.nav-buttons button:hover {
+    background: var(--primary-green);
+    color: white;
+}
+
+.content {
+    margin-top: 120px;
+    padding: 20px;
+}
+
+.dish-section {
+    margin: 30px 0;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: var(--secondary-teal);
+    margin-bottom: 20px;
+    font-size: 22px;
+    position: relative;
+    padding-left: 15px;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 60%;
+    width: 4px;
+    background: var(--accent-mustard);
+}
+
+.scrollable-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px 0;
+    scrollbar-width: thin;
+}
+/* Add these styles */
+
+.dish-card {
+    min-width: 270px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.dish-card:hover {
+    transform: translateY(-3px);
+}
+
+.dish-image {
+    height: 150px;
+    background: var(--light-cream);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.show-more {
+    display: inline-block;
+    padding: 10px 15px;
+    background: var(--primary-green);
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 2px solid var(--primary-green);
+}
+
+.show-more:hover {
+    background: white;
+    color: var(--primary-green);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    color: var(--dark-charcoal);
+}
+
+.about-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5a5a5a;
+}
+
+.highlight {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    color: var(--secondary-teal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--primary-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: var(--secondary-teal);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .brand-title {
+        font-size: 1.4rem;
+        padding: 12px 0;
+    }
+
+    .navbar {
+        top: 50px;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 6px 10px;
+    }
+
+    .content {
+        margin-top: 100px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .dish-card {
+        min-width: 230px;
+    }
+
+    .nav-buttons button {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+}
