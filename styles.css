@@ -14,7 +14,8 @@
 }
 
 body {
-    background: var(--light-cream);
+    /* background: var(--light-cream); */
+    background: #ddeead;
 }
 
 .brand-title {
