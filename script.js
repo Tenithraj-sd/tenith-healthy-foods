@@ -6,7 +6,7 @@ const products = {
         {name: "Murungai Keerai Podi", desc: "Drumstick Leaves Powder", image: "images/Moringa-Leaf-Powder.jpg"}
     ],
     s: [
-        {name: "Mudakathan Keerai Podi", desc: "Balloon Vine Leaves Powder", image: "images/andhra-dal.png"}
+        {name: "Mudakathan Keerai Podi", desc: "Balloon Vine Leaves Powder", image: "images/Balloon-Vine-Leaves-Powder.png"}
         ,{name:"Kollu Podi", desc:"Horse Gram Powder",image:""},
         {name:"Vallarai Podi", desc:"Gotu Kola Powder",image:""},
         {name:"Manathakkali Podi", desc:"Black Nightshade Leaves Powder",image:""}
