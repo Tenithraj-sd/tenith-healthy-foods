@@ -1,9 +1,9 @@
 const products = {
     mixes: [
-        {name: "Aandhra paruppu podi", desc: "Andhra dal Powder", image: "images/andhra-dal.png"},
-        {name: "Karuveppilai Podi", desc: "Curry Leaves Powder", image: "images/caraway.png"},
-        {name: "Pirandai Podi", desc: "Adamant Creeper Powder", image: "images/brandy.png"},
-        {name: "Murungai Keerai Podi", desc: "Drumstick Leaves Powder", image: "images/moringa-spinach.png"}
+        {name: "Aandhra paruppu podi", desc: "Andhra dal Powder", image: "images/Andhra_dal_Powder.png"},
+        {name: "Karuveppilai Podi", desc: "Curry Leaves Powder", image: "images/Curry-Leaves-Powder.png"},
+        {name: "Pirandai Podi", desc: "Adamant Creeper Powder", image: "images/Adamant-Creeper-Powder.png"},
+        {name: "Murungai Keerai Podi", desc: "Drumstick Leaves Powder", image: "images/Moringa-Leaf-Powder.jpg"}
     ],
     s: [
         {name: "Mudakathan Keerai Podi", desc: "Balloon Vine Leaves Powder", image: "images/andhra-dal.png"}
