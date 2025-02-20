@@ -108,26 +108,23 @@ document.addEventListener('click', (e) => {
 
 // 
 
-function updateScrollState(row) {
-    const threshold = 1;
-    const scrollLeft = row.scrollLeft;
-    const maxScroll = row.scrollWidth - row.clientWidth;
-    
-    if (scrollLeft <= threshold) {
-        row.dataset.scrollState = 'start';
-    } else if (scrollLeft >= maxScroll - threshold) {
-        row.dataset.scrollState = 'end';
-    } else {
-        row.dataset.scrollState = 'middle';
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
-function scrollRow(row, direction) {
-    const scrollAmount = row.clientWidth * 0.8;
-    row.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-    });
+// Scroll to "About Us" heading instead of the entire section
+function scrollToAbout() {
+    const aboutHeading = document.getElementById('about-heading');
+    if (aboutHeading) {
+        aboutHeading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 }
 
 // Update window.onload
