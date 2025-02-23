@@ -6,6 +6,8 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import Command
 from aiogram.fsm.storage.memory import MemoryStorage
 from dotenv import load_dotenv
+from fastapi import FastAPI
+import uvicorn
 
 # Load environment variables
 load_dotenv()
@@ -18,6 +20,13 @@ dp = Dispatcher(storage=MemoryStorage())
 # Load product data from JSON
 with open("products.json", "r", encoding="utf-8") as f:
     product_data = json.load(f)
+
+# FastAPI app
+app = FastAPI()
+
+@app.get("/")
+async def home():
+    return {"message": "Hello! The bot is running..."}
 
 async def delete_messages_later(user_id: int, message_ids: list, delay: int = 100):
     """Deletes messages after a delay and sends a restart prompt."""
@@ -109,9 +118,14 @@ async def back_to_start(callback: types.CallbackQuery):
     await callback.message.delete()
     await start_menu(callback.message)
 
-async def main():
+async def bot_runner():
     print("🤖 Bot is running...")
     await dp.start_polling(bot)
 
+def start_bot():
+    loop = asyncio.get_event_loop()
+    loop.create_task(bot_runner())
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    start_bot()
